@@ -45,14 +45,8 @@ resource "aws_instance" "palo_alto_a" {
   instance_type = var.palo_alto_instance_type
   key_name      = aws_key_pair.palo_alto.key_name
 
-  network_interface {
+  primary_network_interface {
     network_interface_id = aws_network_interface.palo_alto_data_a.id
-    device_index         = 0
-  }
-
-  network_interface {
-    network_interface_id = aws_network_interface.palo_alto_management_a.id
-    device_index         = 1
   }
 
   user_data = <<-EOF
@@ -88,4 +82,9 @@ resource "aws_instance" "palo_alto_a" {
     Name = "${local.project_name}-palo-alto-a"
     Role = "Inspection-Firewall"
   }
+}
+resource "aws_network_interface_attachment" "palo_alto_management_a" {
+  instance_id          = aws_instance.palo_alto_a.id
+  network_interface_id = aws_network_interface.palo_alto_management_a.id
+  device_index         = 1
 }
