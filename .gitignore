@@ -1,0 +1,36 @@
+# Terraform working directory
+.terraform/
+
+# Terraform state
+*.tfstate
+*.tfstate.*
+
+# Terraform plans
+*.tfplan
+tfplan
+
+# Sensitive variable files
+*.tfvars
+*.tfvars.json
+!terraform.tfvars.example
+
+# Terraform crash and override files
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Credentials and private keys
+*.pem
+*.key
+.env
+.env.*
+
+# Palo Alto bootstrap secrets
+bootstrap/secrets/
+
+# macOS and editor files
+.DS_Store
+.vscode/
