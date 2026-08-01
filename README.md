@@ -108,7 +108,7 @@ A production deployment should use at least one firewall target and one Gateway 
 
 ## Prerequisites
 
-- - Terraform compatible with the versions defined in `versions.tf`
+- Terraform compatible with the versions defined in `versions.tf`
 - AWS CLI configured with suitable permissions
 - An AWS account with access to `eu-west-1`
 - An active subscription to the Palo Alto VM-Series PAYG offer in AWS Marketplace
